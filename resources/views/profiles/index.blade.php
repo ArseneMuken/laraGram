@@ -7,15 +7,20 @@
             <img src="https://scontent-bru2-1.cdninstagram.com/vp/d1cd7550a4cb31a338b0ee19d4175c57/5DA8BA4D/t51.2885-19/s150x150/18808933_246767122466597_4207364879583019008_a.jpg?_nc_ht=scontent-bru2-1.cdninstagram.com" alt="">
         </div>
         <div class="col-9 p-5">
-            <div><h1>{{ $user->username }}</h1></div>
+            <div class="d-flex justify-content-between align-items-baseline">
+                <h1>{{ $user->username }}</h1>
+                <a href="#">Ajouter une photo</a>
+            </div>
             <div class="d-flex">
                 <div class="pr-5"><strong>153</strong> posts</div>
                 <div class="pr-5"><strong>23k</strong> followers</div>
                 <div class="pr-5"><strong>212</strong> following</div>
             </div>
-            <div class="pt-1 font-weight-bold">link.org</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium adipisci debitis dicta distinctio ducimus et inventore.</div>
-            <div class="font-weight-bold"><a href="#">link.org</a></div>
+            <div class="pt-3 font-weight-bold">{{$user->profile->title}}</div>
+            <div>{{$user->profile->description}}</div>
+            @if (!is_null($user->profile->url))
+                <div class="font-weight-bold"><a href="#">{{$user->profile->url}}</a></div>
+            @endif
         </div>
     </div>
     <div class="row pt-5">
