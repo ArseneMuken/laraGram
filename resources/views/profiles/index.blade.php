@@ -11,7 +11,9 @@
                 <div class="d-flex align-items-center">
                     <div class="h4">{{ $user->username }}</div>
 
+                    @cannot('update', $user->profile)
                     <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
+                    @endcannot
 
                 </div>
 
@@ -25,8 +27,8 @@
             @endcan
 
                 <div class="d-flex">
-                <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> publications</div>
-                <div class="pr-5"><strong>{{ $user->profile->followers->count() }}</strong> abonnés</div>
+                <div class="pr-5"><strong>{{ $postCount }}</strong> publications</div>
+                <div class="pr-5"><strong>{{ $followersCount }}</strong> abonnés</div>
                 <div class="pr-5"><strong>{{ $user->following->count() }}</strong> abonnements</div>
             </div>
             <div class="pt-3 font-weight-bold">{{$user->profile->title}}</div>
@@ -45,7 +47,6 @@
             </a>
         </div>
         @endforeach
-
     </div>
 </div>
 @endsection
