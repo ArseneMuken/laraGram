@@ -14,7 +14,9 @@
                     <div class="form-group row">
                         <label for="caption" class="col-md-4 col-form-label">La légende</label>
 
-                        <input id="caption" type="text" class="form-control @error('caption') is-invalid @enderror" caption="caption" value="{{ old('caption') }}" required autocomplete="caption" autofocus>
+                        <input id="caption" type="text" class="form-control @error('caption') is-invalid @enderror"
+                               name="caption"
+                               value="{{ old('caption') }}" required autocomplete="caption" autofocus>
 
                         @error('caption')
                         <span class="invalid-feedback" role="alert">
@@ -23,10 +25,11 @@
                         @enderror
                     </div>
 
-                    <div class="custom-file row">
-                        <label for="image" class="col-md-4 custom-file-label">Image</label>
+                    <div class="custom-file row pb-3">
 
-                        <input type="file" class="custom-file-input" id="image" name="image">
+                        <label for="image" class="col-form-label">Image</label>
+
+                        <input type="file" class="form-control-file" id="image" name="image">
 
                         @error('image')
                         <span class="invalid-feedback" role="alert">
